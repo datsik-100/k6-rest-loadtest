@@ -1,0 +1,12 @@
+version: '3'
+services:
+  k6-loadtest:
+    image: grafana/k6
+    volumes:
+      - .:/app
+    command: ['run', '/app/src/scripts/main.js']
+
+networks:
+  default:
+      external:
+          name: microservicenetwork
